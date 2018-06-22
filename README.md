@@ -55,10 +55,10 @@ from?
 
 #### Passing Information
 
-React allows us to pass information from a parent component down to a child
-component. We call these **props**, which we will dig more into later. Let's see
-how we can pass information from `BlogPost` down to its child `BlogContent`
-component:
+React allows us to pass units of information from a parent component down to a
+child component. We call these **props**, which we will dig more into later.
+Let's see how we can pass information from `BlogPost` down to its child
+`BlogContent` component:
 
 ```javascript
 class BlogPost extends React.Component {
