@@ -58,7 +58,7 @@ from?
 React allows us to pass units of information from a parent component down to a
 child component. We call these **props**, which we will dig more into later.
 Let's see how we can pass information from `BlogPost` down to its child
-`BlogContent` component:
+`BlogContent`:
 
 ```javascript
 class BlogPost extends React.Component {
