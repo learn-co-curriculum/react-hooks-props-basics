@@ -45,11 +45,12 @@ class BlogContent extends React.Component {
 ```
 
 You should see something new in the above code. Inside of `render()`'s return
-block, we have this funky syntax: `{this.props.articleText}`. Quite clearly not
+block, we have this funky syntax: `{this.props.articleText}`. Clearly not
 HTML, this is instead React's special JSX syntax (more on JSX later). 
 
-This line is telling React to place the variable `this.props.articleText` within
-the `<div>`. Ok, so where does `this.props.articleText` come from?
+This line is telling React to place the value that `this.props.articleText`
+represents within the `<div>`. Ok, so where does `this.props.articleText` come
+from?
 
 
 #### Passing Information
