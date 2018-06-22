@@ -157,21 +157,23 @@ programming, and most of what we do as React programmers builds upon them.
 
 ## Summary
 
-**React components:**
-  - are modular, reusable, and enable a 'templating' like functionality
-  - help us organize our user interfaces _functionality_ and _presentation_
-  - enable us to think about each piece in isolation, improving our ability to assert structure on increasingly complex programs
-
-While HTML elements are the basic building blocks of an application (for
+While HTML elements are the basic building blocks of a website, (for
 example, a `<div>`), a React application usually consists of several React
 _components_ combined together. Unlike simple HTML elements, React components
 are smarter and bigger. They allow you to do much more and incorporate logic
 into how content displays.
 
+**React components:**
+  - are modular, reusable, and enable a 'templating' like functionality
+  - help us organize our user interface's _logic_ and _presentation_
+  - enable us to think about each piece in isolation, enabling us to apply structure to complex programs
+
 
 ## Looking Forward
 
-In this README, we introduced some fundamentals of a React component. Going forward we will expand on what we can do with components, how they fit into the larger React landscape, and what built in functionality they come with.
+In this lesson, we introduced some fundamentals of a React component. Going
+forward we will expand on what we can do with components, how they fit into the
+larger React landscape, and what built-in functionality they come with.
 
 
 ## A Quick Note About the Past...
@@ -183,9 +185,8 @@ means old versions of React code will, in some places, look different.
 
 In older versions a method, `React.createClass()`, was used in place of where we
 were defining our own `Class`es and extending the `React.component` class (see
-code above!). While this `React.createClass()` method of creating React
-components has since been deprecated, it is still present in many older code
-bases and tutorials. 
+code above!). While this `React.createClass()` method has since been deprecated,
+it is still present in many older code bases and tutorials. 
 
 For now, we recommend sticking with the up-to-date class syntax we present, but
 don't be alarmed if you come across unfamiliar ways to create React components.
