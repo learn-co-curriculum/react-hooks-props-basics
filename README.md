@@ -73,7 +73,7 @@ class BlogPost extends React.Component {
 ```
 
 In the above, we see that when we render the `BlogContent` component, we also
-assign a value to 'articleText'. This value accessible from within the
+assign a value to 'articleText'. This value is accessible from within the
 `BlogContent` component as `this.props.comment`!
 
 #### Expanding our Application
