@@ -115,8 +115,8 @@ class BlogPost extends React.Component {
 ```
 
 There is quite a bit going on here. Most notably, we are passing information
-from a parent component to a child component. Let's expand the HTML that this
-would ultimately render:
+from a parent component to many child components. Let's expand the HTML that
+this would ultimately render:
 
 ```html
 <div>
@@ -142,7 +142,8 @@ would ultimately render:
 
 ...but seeing is believing so let's look at this in technicolor! Following is an
 inspection of the HTML and _real live DOM elements_ that React rendered when we
-blasted this code into a project (classes, IDs, and minor CSS has been added for a better visual display):
+blasted this code into a new application (classes, IDs, and minor CSS have been
+added for a better visual display):
 
 <object data="https://learn-verified.s3.amazonaws.com/sample-component-video.gif" type="image/png">
   <img src="./completed-example.gif" />
