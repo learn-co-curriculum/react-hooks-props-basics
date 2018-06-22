@@ -151,9 +151,8 @@ added for a better visual display):
 
 
 Alright now! Take a moment. Stretch your limbs, make a sandwich, let the
-glorious paradigm sink in. Dynamic components is a core facet of React
-programming, and most of what we do going forward is going to build upon this
-component parent-child paradigm.
+glorious paradigm sink in. Dynamic components are a core facet of React
+programming, and most of what we do as React programmers builds upon them.
 
 
 ## Summary
