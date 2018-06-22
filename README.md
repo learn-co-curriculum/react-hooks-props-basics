@@ -96,7 +96,7 @@ class BlogPost extends React.Component {
 }
 ```
 
-...and just as before, we can pass the their content down:
+...and just as before, we can pass content data down to them:
 
 
 ```javascript
