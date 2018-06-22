@@ -114,8 +114,9 @@ class BlogPost extends React.Component {
 }
 ```
 
-There is quite a bit going on here. Most notably, we are passing the information
-to the children components. Let's expand the HTML that this would ultimately render:
+There is quite a bit going on here. Most notably, we are passing information
+from a parent component to a child component. Let's expand the HTML that this
+would ultimately render:
 
 ```html
 <div>
