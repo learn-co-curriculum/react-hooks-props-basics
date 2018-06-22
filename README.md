@@ -105,9 +105,9 @@ class BlogPost extends React.Component {
     return (
       <div>
         <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
-        <Comment commentText={"I agree with this statement.<br/>- Angela Merkel"}/>
-        <Comment commentText={"A universal truth.<br/>- Noam Chomsky"}/>
-        <Comment commentText={"Truth is singular. Its ‘versions’ are mistruths.<br/>- Sonmi-451"}/>
+        <Comment commentText={"I agree with this statement. - Angela Merkel"}/>
+        <Comment commentText={"A universal truth. - Noam Chomsky"}/>
+        <Comment commentText={"Truth is singular. Its ‘versions’ are mistruths. - Sonmi-451"}/>
       </div>
     )
   }
@@ -126,15 +126,15 @@ this would ultimately render:
   </div>
 
   <div>
-    I agree with this statement.<br/>- Angela Merkel
+    I agree with this statement. - Angela Merkel
   </div>
 
   <div>
-    A universal truth.<br/>- Noam Chomsky
+    A universal truth. - Noam Chomsky
   </div>
 
   <div>
-    Truth is singular. Its ‘versions’ are mistruths<br/>- Sonmi-451
+    Truth is singular. Its ‘versions’ are mistruths - Sonmi-451
   </div>
 
 </div>
