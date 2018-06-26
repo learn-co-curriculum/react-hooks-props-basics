@@ -4,7 +4,7 @@
 ## Overview
 
 We'll take the next step with React components and examine how they can be used
-as dynamic templates. 
+as dynamic templates.
 
 
 ## Objectives
@@ -23,7 +23,8 @@ components.
 We will use the following components:
   - `BlogContent` - contains the content of the blog post
   - `Comment` - contains one user's comment
-  - `BlogPost` - the 'top level' React component, which is responsible for rendering both `BlogContent` and `Comment`
+  - `BlogPost` - the 'top level' React component, which is responsible for rendering both
+`BlogContent` and `Comment`
 
 
 #### Making Components Dynamic
@@ -46,7 +47,7 @@ class BlogContent extends React.Component {
 
 You should see something new in the above code. Inside of `render()`'s return
 block, we have this funky syntax: `{this.props.articleText}`. Clearly not
-HTML, this is instead React's special JSX syntax (more on JSX later). 
+HTML, this is instead React's special JSX syntax (more on JSX later).
 
 This line is telling React to place the value that `this.props.articleText`
 represents within the `<div>`. Ok, so where does `this.props.articleText` come
@@ -78,8 +79,25 @@ assign a value to 'articleText'. This value is accessible from within the
 
 #### Expanding our Application
 
-We still need our `Comment` components. Let's add them in. Of course, with
-components being re-usable, we can make as many as we want:
+We still need a `Comment` component that we can use for each comment in a
+`BlogPost`. The `Comment` component would look something like:
+
+```javascript
+class Comment extends React.Component {
+  render() {
+    return (
+      <div>
+        {this.props.commentText}
+      </div>
+    )
+  }
+}
+```
+
+This component, when used, will display content that is passed down to it,
+allowing us to pass different content to multiple `Comment` components.  Let's
+add them in. Of course, with components being re-usable, we can make as many as
+we want:
 
 ```javascript
 class BlogPost extends React.Component {
@@ -186,7 +204,7 @@ means old versions of React code will, in some places, look different.
 In older versions a method, `React.createClass()`, was used in place of where we
 were defining our own `Class`es and extending the `React.component` class (see
 code above!). While this `React.createClass()` method has since been deprecated,
-it is still present in many older code bases and tutorials. 
+it is still present in many older code bases and tutorials.
 
 For now, we recommend sticking with the up-to-date class syntax we present, but
 don't be alarmed if you come across unfamiliar ways to create React components.
