@@ -72,9 +72,8 @@ class BlogPost extends React.Component {
 }
 ```
 
-In the above, we see that when we render the `BlogContent` component, we also
-assign a value to 'articleText'. This value is accessible from within the
-`BlogContent` component as `this.props.articleText`!
+In the above, we see that when we render the `BlogContent` component, we also create a prop called `articleText` that we assign a value of "Dear Reader: Bjarne Stroustrup has the perfect lecture oration." This value is accessible from within the
+`BlogContent` component as `this.props.articleText`! To create props, we write them the same way as writting attributes for an HTM tag. But remember, this is JSX and not HTML! 
 
 #### Expanding our Application
 
@@ -132,7 +131,7 @@ class BlogPost extends React.Component {
 ```
 
 There is quite a bit going on here. Most notably, we are passing information
-from a parent component to many child components. Let's expand the HTML that
+from a parent component to many child components. Specifically, we are doing this by creating a prop called `commentText` to pass to each `Comment` component, which is then accessible in each instance of `Comment` as `this.props.commentText`. Let's expand the HTML that
 this would ultimately render:
 
 ```html
