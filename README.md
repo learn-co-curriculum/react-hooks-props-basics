@@ -75,6 +75,8 @@ class BlogPost extends React.Component {
 In the above, we see that when we render the `BlogContent` component, we also create a prop called `articleText` that we assign a value of "Dear Reader: Bjarne Stroustrup has the perfect lecture oration." This value is accessible from within the
 `BlogContent` component as `this.props.articleText`! To create props, we write them the same way as writting attributes for an HTM tag. But remember, this is JSX and not HTML! 
 
+One more thing about props: they can be any data type! In our example, we pass a string as a prop. But we can pass a number, boolean, object, function, etc. as a prop! 
+
 #### Expanding our Application
 
 We still need a `Comment` component that we can use for each comment in a
