@@ -163,7 +163,10 @@ inspection of the L and _real live DOM elements_ that React rendered when we
 blasted this code into a new application (classes, IDs, and minor CSS have been
 added for a better visual display):
 
-<img src="https://curriculum-content.s3.amazonaws.com/react/completed-example-dynamic-components.gif" width=600>
+![completed example][logo]
+
+[logo]: https://curriculum-content.s3.amazonaws.com/react/completed-example-dynamic-components.gif
+
 
 Alright now! Take a moment. Stretch your limbs, make a sandwich, let the
 glorious paradigm sink in. Dynamic components are a core facet of React
