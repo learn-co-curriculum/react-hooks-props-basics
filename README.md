@@ -163,9 +163,7 @@ inspection of the L and _real live DOM elements_ that React rendered when we
 blasted this code into a new application (classes, IDs, and minor CSS have been
 added for a better visual display):
 
-<object data="https://learn-verified.s3.amazonaws.com/sample-component-video.gif" type="image/png">
-  <img src="./completed-example.gif" />
-</object>
+![completed example](https://curriculum-content.s3.amazonaws.com/react/completed-example-dynamic-components.gif)
 
 
 Alright now! Take a moment. Stretch your limbs, make a sandwich, let the
