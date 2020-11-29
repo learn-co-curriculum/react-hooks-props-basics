@@ -31,25 +31,24 @@ We will use the following components:
 
 Time to put the **dynamic** aspect of components to use! Let's start with the
 `BlogContent` component. The following snippet shows how we can describe
-variables in our components' `render()` methods:
+variables inside a component:
 
 ```javascript
-class BlogContent extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.articleText}
-      </div>  
-    )
-  }
+function BlogContent(props) {
+  return (
+    <div>
+      {props.articleText}
+    </div>  
+  )
 }
 ```
 
-You should see something new in the above code. Inside of `render()`'s return
-block, we have this funky syntax: `{this.props.articleText}`. 
+You should see something new in the above code. Our function now
+takes an argument called `props`. Also, inside the return
+statement, we have this funky syntax: `{props.articleText}`. 
 
-This line is telling React to place the value that `this.props.articleText`
-represents within the `<div>`. Ok, so where does `this.props.articleText` come
+This line is telling React to place the value that `props.articleText`
+represents within the `<div>`. Ok, so where does `props.articleText` come
 from?
 
 
@@ -61,19 +60,16 @@ Let's see how we can pass information from `BlogPost` down to its child
 `BlogContent`:
 
 ```javascript
-class BlogPost extends React.Component {
-  render() {
-    return (
-      <div>
-        <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
-      </div>
-    )
-  }
+function BlogPost {
+  return (
+    <div>
+      <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
+    </div>
+  )
 }
 ```
  
-In the above, we see that when we render the `BlogContent` component, we also create a prop called `articleText` that we assign a value of "Dear Reader: Bjarne Stroustrup has the perfect lecture oration." This value is accessible from within the
-`BlogContent` component as `this.props.articleText`! To create props, we write them the same way as writting attributes for an HTML tag. But remember, this is JSX and not HTML! 
+In the above, we see that when we render the `BlogContent` component, we also create a prop called `articleText` that we assign a value of "Dear Reader: Bjarne Stroustrup has the perfect lecture oration." This value is accessible from within the `BlogContent` component as `props.articleText`! To create props, we write them the same way as writing attributes for an HTML tag. But remember, this is JSX and not HTML! 
 
 One more thing about props: they can be any data type! In our example, we pass a string as a prop. But we can pass a number, boolean, object, function, etc. as a prop! 
 
@@ -83,14 +79,12 @@ We still need a `Comment` component that we can use for each comment in a
 `BlogPost`. The `Comment` component would look something like:
 
 ```javascript
-class Comment extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.commentText}
-      </div>
-    )
-  }
+function Comment(props) {
+  return (
+    <div>
+      {props.commentText}
+    </div>
+  )
 }
 ```
 
@@ -100,17 +94,15 @@ add them in. Of course, with components being re-usable, we can make as many as
 we want:
 
 ```javascript
-class BlogPost extends React.Component {
-  render() {
-    return (
-      <div>
-        <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
-        <Comment />
-        <Comment />
-        <Comment />
-      </div>
-    )
-  }
+function BlogPost() {
+  return (
+    <div>
+      <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
+      <Comment />
+      <Comment />
+      <Comment />
+    </div>
+  )
 }
 ```
 
@@ -118,27 +110,27 @@ class BlogPost extends React.Component {
 
 
 ```javascript
-class BlogPost extends React.Component {
-  render() {
-    return (
-      <div>
-        <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
-        <Comment commentText={"I agree with this statement. - Angela Merkel"}/>
-        <Comment commentText={"A universal truth. - Noam Chomsky"}/>
-        <Comment commentText={"Truth is singular. Its ‘versions’ are mistruths. - Sonmi-451"}/>
-      </div>
-    )
-  }
+function BlogPost() {
+  return (
+    <div>
+      <BlogContent articleText={"Dear Reader: Bjarne Stroustrup has the perfect lecture oration."}/>
+      <Comment commentText={"I agree with this statement. - Angela Merkel"}/>
+      <Comment commentText={"A universal truth. - Noam Chomsky"}/>
+      <Comment commentText={"Truth is singular. Its ‘versions’ are mistruths. - Sonmi-451"}/>
+    </div>
+  )
 }
 ```
 
 There is quite a bit going on here. Most notably, we are passing information
-from a parent component to many child components. Specifically, we are doing this by creating a prop called `commentText` to pass to each `Comment` component, which is then accessible in each instance of `Comment` as `this.props.commentText`. Let's expand the HTML that
-this would ultimately render:
+from a parent component to many child components. Specifically, we are doing this 
+by creating a prop called `commentText` to pass to each `Comment` component, 
+which is then accessible in each instance of `Comment` as `props.commentText`. 
+Let's expand the HTML that this would ultimately render:
 
 ```html
 <div>
-x
+
   <div>
     Dear Reader: Bjarne Stroustrup has the perfect lecture oration.
   </div>
@@ -159,7 +151,7 @@ x
 ```
 
 ...but seeing is believing so let's look at this in technicolor! Following is an
-inspection of the L and _real live DOM elements_ that React rendered when we
+inspection of the _real live DOM elements_ that React rendered when we
 blasted this code into a new application (classes, IDs, and minor CSS have been
 added for a better visual display):
 
@@ -191,27 +183,8 @@ In this lesson, we introduced some fundamentals of a React component. Going
 forward we will expand on what we can do with components, how they fit into the
 larger React landscape, and what built-in functionality they come with.
 
-
-## A Quick Note About the Past...
-
-React is a living framework that is constantly being updated and improved upon.
-Compounding on that, React has spanned the transition from ES5 to ES6, (the
-newer version of which has had many updates, including `Class` syntax). This
-means old versions of React code will, in some places, look different.
-
-In older versions a method, `React.createClass()`, was used in place of where we
-were defining our own `Class`es and extending the `React.component` class (see
-code above!). While this `React.createClass()` method has since been deprecated,
-it is still present in many older code bases and tutorials.
-
-For now, we recommend sticking with the up-to-date class syntax we present, but
-don't be alarmed if you come across unfamiliar ways to create React components.
-The [React documentation][old-react] is always there for you regarding backwards
-compatibility.
-
 ## Resources
 - [React Top-Level API](https://reactjs.org/docs/react-api.html)
 
-[old-react]: https://reactjs.org/docs/react-without-es6.html
 [react-component]: https://reactjs.org/docs/components-and-props.html
 [bjarne-stroustrup]: https://www.youtube.com/watch?v=JBjjnqG0BP8
