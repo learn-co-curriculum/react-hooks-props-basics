@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+}
+
+#blog-post {
+  margin: 40px auto;
+  border-radius: 15px;
+  width: 500px;
+  background-color: rgb(84, 78, 238);
+  padding: 30px;
+}
+
+.comment {
+  background-color: rgb(67, 215, 58);
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-flex;
+}
