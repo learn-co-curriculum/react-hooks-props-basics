@@ -24,7 +24,7 @@ We will use the following components:
 - `BlogPost` - the 'top level' React component, which is responsible for rendering both
   `BlogContent` and `Comment`
 
-#### Making Components Dynamic
+### Making Components Dynamic
 
 Time to put the **dynamic** aspect of components to use! Let's start with the
 `BlogContent` component. The following snippet shows how we can describe
@@ -43,7 +43,7 @@ syntax: `{props.articleText}`.
 This line is telling React to place the value that `props.articleText`
 represents within the `<div>`. Ok, so where does `props.articleText` come from?
 
-#### Passing Information
+### Passing Information
 
 React allows us to pass units of information from a parent component down to a
 child component. We call these **props**, which we will dig more into in a later
@@ -196,7 +196,7 @@ function BlogContent(props) {
 }
 ```
 
-#### Expanding our Application
+### Expanding our Application
 
 We still need a `Comment` component that we can use for each comment in a
 `BlogPost`. The `Comment` component would look something like:
@@ -212,7 +212,7 @@ allowing us to pass different content to multiple `Comment` components. Let's
 add them in. Of course, with components being re-usable, we can make as many as
 we want:
 
-```javascript
+```js
 function BlogPost() {
   return (
     <div>
@@ -231,7 +231,7 @@ function BlogPost() {
 
 ...and just as before, we can pass content data down to them:
 
-```javascript
+```js
 function BlogPost() {
   return (
     <div>
@@ -275,7 +275,7 @@ inspection of the _real live DOM elements_ that React rendered when we blasted
 this code into a new application (classes, IDs, and minor CSS have been added
 for a better visual display):
 
-<img src="https://curriculum-content.s3.amazonaws.com/react/completed-example-dynamic-components.gif" alt="completed example" />
+![completed example](https://curriculum-content.s3.amazonaws.com/react/completed-example-dynamic-components.gif)
 
 Alright now! Take a moment. Stretch your limbs, make a sandwich, let the
 glorious paradigm sink in. Dynamic components are a core facet of React
