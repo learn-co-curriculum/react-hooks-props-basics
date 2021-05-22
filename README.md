@@ -1,19 +1,19 @@
 # Props Basics
 
+## Learning Goals
+
+- Use props to make reusable component templates
+- Understand how props are passed to a component
+
 ## Overview
 
 We'll take the next step with React components and examine how they can be used
 as dynamic templates by using **props**.
 
-## Objectives
-
-1. Understand how React components can be dynamic templates
-2. Create dynamic React components and show the HTML they create
-
 ## Introduction
 
 As the building blocks of React applications, components are _dynamic_, in that
-they can describe a template of HTML and fill in variable data. This lesson
+they can describe a **template** of HTML and fill in variable data. This lesson
 builds a real example of a blogging application to illustrate dynamic
 components.
 
@@ -36,8 +36,8 @@ function BlogContent(props) {
 }
 ```
 
-You should see something new in the above code. Our function now takes an
-argument called `props`. Also, inside the return statement, we have this funky
+You should see something new in the above code. Our function has a parameter
+defined called `props`. Also, inside the return statement, we have this funky
 syntax: `{props.articleText}`.
 
 This line is telling React to place the value that `props.articleText`
@@ -45,20 +45,16 @@ represents within the `<div>`. Ok, so where does `props.articleText` come from?
 
 ### Passing Information
 
-React allows us to pass units of information from a parent component down to a
-child component. We call these **props**, which we will dig more into in a later
-lesson. Let's see how we can pass information from `BlogPost` down to its child
-`BlogContent`:
+React allows us to pass units of information from a _parent_ component down to a
+_child_ component. We call these **props**, which we will dig more into in a
+later lesson. Let's see how we can pass information from `BlogPost` down to its
+child `BlogContent`:
 
-```javascript
+```js
 function BlogPost() {
   return (
     <div>
-      <BlogContent
-        articleText={
-          "Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
-        }
-      />
+      <BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
     </div>
   );
 }
@@ -69,7 +65,30 @@ create a prop called `articleText` that we assign a value of "Dear Reader:
 Bjarne Stroustrup has the perfect lecture oration." This value is accessible
 from within the `BlogContent` component as `props.articleText`!
 
-**To create props, we write them the same way as writing attributes for an HTML tag.**
+**To create props, we write them the same way as writing attributes for an HTML
+tag.** For example, to assign a `<div>` an id, we give it an attribute:
+
+```html
+<div id="card">Hello!</div>
+```
+
+To assign a **prop** to a **component**, we use the same syntax:
+
+```js
+function ParentComponent() {
+  // passing prop to ChildComponent
+  return <ChildComponent text="Hello!" number={2} />;
+}
+
+function ChildComponent(props) {
+  // using the values of the text and number props
+  return (
+    <div>
+      {props.text} {props.number}
+    </div>
+  );
+}
+```
 
 But remember, this is JSX and not HTML!
 
@@ -80,7 +99,8 @@ prop!
 ### Props
 
 Let's expand a bit on props here. Taking a look at both of our components will
-give us a better understanding of how data can be passed from one component to another:
+give us a better understanding of how data can be passed from one component to
+another:
 
 ```js
 // BlogPost.js
@@ -90,11 +110,7 @@ function BlogPost() {
     <div>
       {/* BlogContent is being returned from BlogPost */}
       {/* Therefore, BlogContent a child of BlogPost */}
-      <BlogContent
-        articleText={
-          "Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
-        }
-      />
+      <BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
     </div>
   );
 }
@@ -118,11 +134,7 @@ On this line:
 
 ```js
 // BlogPost.js
-<BlogContent
-  articleText={
-    "Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
-  }
-/>
+<BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
 ```
 
 We are adding a **prop** of `articleText` to our `BlogContent` component.
@@ -151,16 +163,18 @@ parent component:
 
 ```js
 <BlogContent
-  articleText={
-    "Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
-  }
+  articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
   isPublished={true}
   minutesToRead={1}
 />
 ```
 
-And all of these props will be added as keys on the props object in the child
-component:
+**Note**: for props that are strings, we don't need to place curly braces around
+the values; for other data types (numbers, booleans, objects, etc), we need
+curly braces.
+
+And all of these props will be added as **keys on the props object** in the
+child component:
 
 ```js
 // BlogContent.js
@@ -183,16 +197,19 @@ additional props:
 function BlogContent(props) {
   console.log(props);
 
-  // hide unpublished content
-  if (!props.isPublished) return null;
-
-  // show published content
-  return (
-    <div>
-      <h1>{props.articleText}</h1>
-      <p>{props.minutesToRead} minutes to read</p>
-    </div>
-  );
+  if (!props.isPublisbed) {
+    // hide unpublished content
+    // return null means "don't display any DOM elements here"
+    return null;
+  } else {
+    // show published content
+    return (
+      <div>
+        <h1>{props.articleText}</h1>
+        <p>{props.minutesToRead} minutes to read</p>
+      </div>
+    );
+  }
 }
 ```
 
@@ -216,11 +233,7 @@ we want:
 function BlogPost() {
   return (
     <div>
-      <BlogContent
-        articleText={
-          "Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
-        }
-      />
+      <BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
       <Comment />
       <Comment />
       <Comment />
@@ -235,18 +248,10 @@ function BlogPost() {
 function BlogPost() {
   return (
     <div>
-      <BlogContent
-        articleText={
-          "Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
-        }
-      />
-      <Comment commentText={"I agree with this statement. - Angela Merkel"} />
-      <Comment commentText={"A universal truth. - Noam Chomsky"} />
-      <Comment
-        commentText={
-          "Truth is singular. Its ‘versions’ are mistruths. - Sonmi-451"
-        }
-      />
+      <BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
+      <Comment commentText="I agree with this statement. - Angela Merkel" />
+      <Comment commentText="A universal truth. - Noam Chomsky" />
+      <Comment commentText="Truth is singular. Its ‘versions’ are mistruths. - Sonmi-451" />
     </div>
   );
 }
@@ -281,7 +286,7 @@ Alright now! Take a moment. Stretch your limbs, make a sandwich, let the
 glorious paradigm sink in. Dynamic components are a core facet of React
 programming, and most of what we do as React programmers builds upon them.
 
-## Summary
+## Conclusion
 
 While HTML elements are the basic building blocks of a website, (for example, a
 `<div>`), a React application usually consists of several React _components_
@@ -291,7 +296,7 @@ displays.
 
 **Components:**
 
-- are modular, reusable, and enable a 'templating' like functionality
+- are modular, reusable, and enable a 'templating' functionality
 - help us organize our user interface's _logic_ and _presentation_
 - enable us to think about each piece in isolation, enabling us to apply
   structure to complex programs
@@ -303,15 +308,9 @@ displays.
   our component function
 - can hold any kind of data (strings, numbers, booleans, objects, even functions!)
 
-## Looking Forward
-
-In this lesson, we introduced some fundamentals of a React component. Going
-forward we will expand on what we can do with components, how they fit into the
-larger React landscape, and what built-in functionality they come with.
+Going forward we will expand on what we can do with components, how they fit
+into the larger React landscape, and what built-in functionality they come with.
 
 ## Resources
 
-- [Components and Props][react-component]
-
-[react-component]: https://reactjs.org/docs/components-and-props.html
-[bjarne-stroustrup]: https://www.youtube.com/watch?v=JBjjnqG0BP8
+- [Components and Props](https://reactjs.org/docs/components-and-props.html)
