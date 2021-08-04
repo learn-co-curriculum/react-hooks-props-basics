@@ -30,7 +30,7 @@ Time to put the **dynamic** aspect of components to use! Let's start with the
 `BlogContent` component. The following snippet shows how we can describe
 variables inside a component:
 
-```javascript
+```jsx
 function BlogContent(props) {
   return <div>{props.articleText}</div>;
 }
@@ -50,7 +50,7 @@ _child_ component. We call these **props**, which we will dig more into in a
 later lesson. Let's see how we can pass information from `BlogPost` down to its
 child `BlogContent`:
 
-```js
+```jsx
 function BlogPost() {
   return (
     <div>
@@ -74,7 +74,7 @@ tag.** For example, to assign a `<div>` an id, we give it an attribute:
 
 To assign a **prop** to a **component**, we use the same syntax:
 
-```js
+```jsx
 function ParentComponent() {
   // passing prop to ChildComponent
   return <ChildComponent text="Hello!" number={2} />;
@@ -102,7 +102,7 @@ Let's expand a bit on props here. Taking a look at both of our components will
 give us a better understanding of how data can be passed from one component to
 another:
 
-```js
+```jsx
 // BlogPost.js
 // PARENT COMPONENT
 function BlogPost() {
@@ -132,7 +132,7 @@ via **props**.
 
 On this line:
 
-```js
+```jsx
 // BlogPost.js
 <BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
 ```
@@ -141,7 +141,7 @@ We are adding a **prop** of `articleText` to our `BlogContent` component.
 
 If we add a `console.log` in the `BlogContent` component to inspect the props:
 
-```js
+```jsx
 // BlogContent.js
 function BlogContent(props) {
   console.log(props);
@@ -152,7 +152,7 @@ function BlogContent(props) {
 We'll see an **object** with **key-value pairs** related to the data we passed
 down from the parent component!
 
-```js
+```jsx
 // BlogContent.js
 console.log(props);
 // => { articleText: "Dear Reader: Bjarne Stroustrup has the perfect lecture oration." }
@@ -161,7 +161,7 @@ console.log(props);
 We can add as many additional props as we want, by assigning them in the
 parent component:
 
-```js
+```jsx
 <BlogContent
   articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration."
   isPublished={true}
@@ -193,7 +193,7 @@ to a child component from a parent makes our components incredibly flexible! For
 example, here's how we could expand our `BlogContent` component based on those
 additional props:
 
-```js
+```jsx
 function BlogContent(props) {
   console.log(props);
 
@@ -218,7 +218,7 @@ function BlogContent(props) {
 We still need a `Comment` component that we can use for each comment in a
 `BlogPost`. The `Comment` component would look something like:
 
-```javascript
+```jsx
 function Comment(props) {
   return <div>{props.commentText}</div>;
 }
@@ -229,7 +229,7 @@ allowing us to pass different content to multiple `Comment` components. Let's
 add them in. Of course, with components being re-usable, we can make as many as
 we want:
 
-```js
+```jsx
 function BlogPost() {
   return (
     <div>
@@ -244,7 +244,7 @@ function BlogPost() {
 
 ...and just as before, we can pass content data down to them:
 
-```js
+```jsx
 function BlogPost() {
   return (
     <div>
