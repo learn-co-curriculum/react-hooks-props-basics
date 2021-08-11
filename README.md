@@ -5,19 +5,15 @@
 - Use props to make reusable component templates
 - Understand how props are passed to a component
 
-## Overview
-
-We'll take the next step with React components and examine how they can be used
-as dynamic templates by using **props**.
-
 ## Introduction
 
-As the building blocks of React applications, components are _dynamic_, in that
-they can describe a **template** of HTML and fill in variable data. This lesson
-builds a real example of a blogging application to illustrate dynamic
-components.
+In this lesson, we'll learn how we can turn our React components into dynamic
+templates using **props**.
 
-We will use the following components:
+As the building blocks of React applications, components are _dynamic_, in that
+they can describe a **template** of HTML in which variable data can be
+populated. To illustrate dynamic components, we will build an example blogging
+application. Our application will include the following components:
 
 - `BlogContent` - contains the content of the blog post
 - `Comment` - contains one user's comment
@@ -27,8 +23,7 @@ We will use the following components:
 ### Making Components Dynamic
 
 Time to put the **dynamic** aspect of components to use! Let's start with the
-`BlogContent` component. The following snippet shows how we can describe
-variables inside a component:
+`BlogContent` component:
 
 ```jsx
 function BlogContent(props) {
@@ -60,13 +55,14 @@ function BlogPost() {
 }
 ```
 
-In the above, we see that when we render the `BlogContent` component, we also
-create a prop called `articleText` that we assign a value of "Dear Reader:
-Bjarne Stroustrup has the perfect lecture oration." This value is accessible
-from within the `BlogContent` component as `props.articleText`!
+Above we see that when we render the `BlogContent` component, we also create a
+prop called `articleText` that we assign a value of "Dear Reader: Bjarne
+Stroustrup has the perfect lecture oration." This value is accessible from
+within the `BlogContent` component as `props.articleText`!
 
-**To create props, we write them the same way as writing attributes for an HTML
-tag.** For example, to assign a `<div>` an id, we give it an attribute:
+**The syntax for creating props for a React component is the same as the syntax
+for writing attributes for an HTML tag.** For example, to assign a `<div>` an
+id, we give it an attribute:
 
 ```html
 <div id="card">Hello!</div>
@@ -93,8 +89,8 @@ function ChildComponent(props) {
 But remember, this is JSX and not HTML!
 
 One more thing about props: they can be any data type! In our example, we pass a
-string as a prop. But we can pass a number, boolean, object, function, etc. as a
-prop!
+string as a prop. But we can also pass numbers, booleans, objects, functions,
+etc. as props!
 
 ### Props
 
@@ -109,7 +105,7 @@ function BlogPost() {
   return (
     <div>
       {/* BlogContent is being returned from BlogPost */}
-      {/* Therefore, BlogContent a child of BlogPost */}
+      {/* Therefore, BlogContent is a child of BlogPost */}
       <BlogContent articleText="Dear Reader: Bjarne Stroustrup has the perfect lecture oration." />
     </div>
   );
@@ -197,7 +193,7 @@ additional props:
 function BlogContent(props) {
   console.log(props);
 
-  if (!props.isPublisbed) {
+  if (!props.isPublished) {
     // hide unpublished content
     // return null means "don't display any DOM elements here"
     return null;
@@ -213,10 +209,13 @@ function BlogContent(props) {
 }
 ```
 
+Above, we are using [_conditional rendering_][conditional rendering] to only
+display the blog content if it is published.
+
 ### Expanding our Application
 
 We still need a `Comment` component that we can use for each comment in a
-`BlogPost`. The `Comment` component would look something like:
+`BlogPost`. The `Comment` component would look something like this:
 
 ```jsx
 function Comment(props) {
@@ -261,7 +260,7 @@ There is quite a bit going on here. Most notably, we are passing information
 from a parent component to many child components. Specifically, we are doing
 this by creating a prop called `commentText` to pass to each `Comment`
 component, which is then accessible in each instance of `Comment` as
-`props.commentText`. Let's expand the HTML that this would ultimately render:
+`props.commentText`. Let's expand the HTML this would ultimately render:
 
 ```html
 <div>
@@ -298,7 +297,7 @@ displays.
 
 - are modular, reusable, and enable a 'templating' functionality
 - help us organize our user interface's _logic_ and _presentation_
-- enable us to think about each piece in isolation, enabling us to apply
+- enable us to think about each piece in isolation, and apply
   structure to complex programs
 
 **Props:**
@@ -314,3 +313,5 @@ into the larger React landscape, and what built-in functionality they come with.
 ## Resources
 
 - [Components and Props](https://reactjs.org/docs/components-and-props.html)
+
+[conditional rendering]: https://reactjs.org/docs/conditional-rendering.html
