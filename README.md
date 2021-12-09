@@ -17,8 +17,8 @@ application. Our application will include the following components:
 
 - `BlogContent` - contains the content of the blog post
 - `Comment` - contains one user's comment
-- `BlogPost` - the 'top level' React component, which is responsible for rendering both
-  `BlogContent` and `Comment`
+- `BlogPost` - the 'top level' React component, which is responsible for
+  rendering both `BlogContent` and `Comment`
 
 ### Making Components Dynamic
 
