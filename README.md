@@ -10,10 +10,14 @@
 In this lesson, we'll learn how we can turn our React components into dynamic
 templates using **props**.
 
+We can define a React component as follows:
+
+A component is a _function_ that takes _props_ as an argument and returns _JSX_.
+
 As the building blocks of React applications, components are _dynamic_, in that
-they can describe a **template** of HTML in which variable data can be
-populated. To illustrate dynamic components, we will build an example blogging
-application. Our application will include the following components:
+they can describe a **template** of JSX in which variable data can be populated.
+To illustrate dynamic components, we will build an example blogging application.
+Our application will include the following components:
 
 - `BlogContent` - contains the content of the blog post
 - `Comment` - contains one user's comment
@@ -89,7 +93,7 @@ function ChildComponent(props) {
 But remember, this is JSX and not HTML!
 
 One more thing about props: they can be any data type! In our example, we pass a
-string as a prop. But we can also pass numbers, booleans, objects, functions,
+string and a number as props. But we can also pass booleans, objects, functions,
 etc. as props!
 
 ### Props
@@ -154,8 +158,8 @@ console.log(props);
 // => { articleText: "Dear Reader: Bjarne Stroustrup has the perfect lecture oration." }
 ```
 
-We can add as many additional props as we want, by assigning them in the
-parent component:
+We can add as many additional props as we want by assigning them in the parent
+component:
 
 ```jsx
 <BlogContent
@@ -210,7 +214,7 @@ function BlogContent(props) {
 ```
 
 Above, we are using [_conditional rendering_][conditional rendering] to only
-display the blog content if it is published.
+display the blog content if it is published, based on the `isPublished` prop.
 
 ### Expanding our Application
 
@@ -297,15 +301,16 @@ displays.
 
 - are modular, reusable, and enable a 'templating' functionality
 - help us organize our user interface's _logic_ and _presentation_
-- enable us to think about each piece in isolation, and apply
-  structure to complex programs
+- enable us to think about each piece in isolation, and apply structure to
+  complex programs
 
 **Props:**
 
 - are passed from a _parent component_ to a _child component_
 - can be accessed in the _child components_ via an _object_ that is passed into
-  our component function
-- can hold any kind of data (strings, numbers, booleans, objects, even functions!)
+  our component function as an argument
+- can hold any kind of data (strings, numbers, booleans, objects, even
+  functions!)
 
 Going forward we will expand on what we can do with components, how they fit
 into the larger React landscape, and what built-in functionality they come with.
